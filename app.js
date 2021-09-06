@@ -11,6 +11,25 @@ function hasDuplicates(arr) {
     return arr.some(x => arr.indexOf(x) !== arr.lastIndexOf(x));
 }
 
+// input: array of numbers
+// output: a string with the numbers list
+function printListOfNumbers(arrayOfNumbers) {
+
+    let stringListNumbers = "";
+
+    for (let i = 0; i < arrayOfNumbers.length; i++) {
+    
+        stringListNumbers += `${arrayOfNumbers[i]}`;
+    
+        if ( i != (arrayOfNumbers.length - 1) ) {
+            stringListNumbers += ` - `;
+        }
+    }
+    
+    return stringListNumbers;
+}
+
+
 
 let listNumbers = [];
 
@@ -23,7 +42,7 @@ while ( listNumbers.length < 5 ) {
     }
 }
 
-alert(listNumbers);
+alert(printListOfNumbers(listNumbers));
 
 
 let listUserNumbers = [];
@@ -31,9 +50,9 @@ let listUserNumbers = [];
 setTimeout( 
     function() {
         let scoreCount = [];
-        
+
         // save the 5 numbers of the user
-        for (let i = 0; i < 5; i++) {
+        for (let i = 0; i < listNumbers.length; i++) {
             listUserNumbers.push( parseInt(prompt(`inserisci uno alla volta i numeri che hai visto`)) );
 
             if ( listNumbers.includes(listUserNumbers[i]) ) {
@@ -48,15 +67,15 @@ setTimeout(
         } 
 
         // print the score 
-        if ( scoreCount.length == 5 ) {
+        if ( scoreCount.length == listNumbers.length ) {
             alert(`Bravo!!, hai indovinato tutti i numeri`);
 
         } else if ( scoreCount.length == 0 ) {
             alert(`Non hai indovinato nessun numero :(`);
 
         } else {
-            alert(`hai indovinato ${scoreCount.length} numeri: ( ${scoreCount} )`);
+            alert(`hai indovinato ${scoreCount.length} numeri: ( ${printListOfNumbers(scoreCount)} )`);
         }
     }
-,1000 * 30 );
+,1000 * 0 );
 
