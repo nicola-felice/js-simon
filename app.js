@@ -77,5 +77,5 @@ setTimeout(
             alert(`hai indovinato ${scoreCount.length} numeri: ( ${printListOfNumbers(scoreCount)} )`);
         }
     }
-,1000 * 0 );
+,1000 * 30 );
 
